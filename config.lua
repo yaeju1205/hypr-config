@@ -88,4 +88,7 @@ hl.config({
     animations = {
         enabled = true
     },
+    debug = {
+        disable_logs = false,
+    },
 })

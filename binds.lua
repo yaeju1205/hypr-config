@@ -1,3 +1,5 @@
+local monitors = require("./monitors")
+
 local mod = "SUPER"
 
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
@@ -10,6 +12,55 @@ hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
+
+
+hl.bind(mod .. " + 0", function()
+    local monitor = hl.get_active_monitor().name
+
+    for i=1, #monitors do
+        if monitor == monitors[i] then
+            hl.dispatch(hl.dsp.focus({ workspace = i * 10 }))
+            break
+        end
+    end
+end)
+
+hl.bind(mod .. " + SHIFT + 0", function()
+    local monitor = hl.get_active_monitor().name
+
+    for i=1, #monitors do
+        if monitor == monitors[i] then
+            hl.dispatch(hl.dsp.window.move({ workspace = i * 10 }))
+            break
+        end
+    end
+end)
+
+for i=1, 9 do
+    local key = i % 10
+
+    hl.bind(mod .. " + " .. key, function()
+        local monitor = hl.get_active_monitor().name
+
+        for j=1, #monitors do
+            if monitor == monitors[j] then
+                hl.dispatch(hl.dsp.focus({ workspace = j * 10 + i }))
+                break
+            end
+        end
+    end)
+
+    hl.bind(mod .. " + SHIFT + " .. key, function()
+        local monitor = hl.get_active_monitor().name
+
+        for j=1, #monitors do
+            if monitor == monitors[j] then
+                hl.dispatch(hl.dsp.window.move({ workspace = j * 10 + i }))
+                break
+            end
+        end
+    end)
+end
 
 hl.bind(mod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -39,8 +90,8 @@ hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
 hl.bind(mod .. " + SHIFT + Left",  hl.dsp.window.swap({ direction = "left" }))
-hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.swap({ direction = "down" }))
-hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.move({ workspace = "e+1" }))
 hl.bind(mod .. " + SHIFT + Right", hl.dsp.window.swap({ direction = "right" }))
 
 hl.bind(mod .. " + CTRL + SHIFT + H", hl.dsp.window.move({ monitor = "left" }))
@@ -74,4 +125,3 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
-
