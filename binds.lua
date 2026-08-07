@@ -38,10 +38,10 @@ hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
-hl.bind(mod .. " + SHIFT + Left",  hl.dsp.window.move({ direction = "left" }))
-hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.move({ direction = "down" }))
-hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.move({ direction = "up" }))
-hl.bind(mod .. " + SHIFT + Right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mod .. " + SHIFT + Left",  hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.swap({ direction = "down" }))
+hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mod .. " + SHIFT + Right", hl.dsp.window.swap({ direction = "right" }))
 
 hl.bind(mod .. " + CTRL + SHIFT + H", hl.dsp.window.move({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + SHIFT + L", hl.dsp.window.move({ monitor = "right" }))
@@ -56,6 +56,7 @@ hl.bind(mod .. " + CTRL + SHIFT + Right", hl.dsp.window.move({ monitor = "right"
 
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf"))
 hl.bind(mod .. " + D", hl.dsp.layout("colresize 3conf"))
+hl.bind(mod .. " + A", hl.dsp.layout("expel"))
 
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
