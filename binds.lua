@@ -23,14 +23,15 @@ hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 hl.bind(mod .. " + CTRL + H", hl.dsp.focus({ monitor = "left" }))
-hl.bind(mod .. " + CTRL + K", hl.dsp.focus({ monitor = "right" }))
-hl.bind(mod .. " + CTRL + left", hl.dsp.focus({ monitor = "left" }))
-hl.bind(mod .. " + CTRL + right", hl.dsp.focus({ monitor = "right" }))
+hl.bind(mod .. " + CTRL + L", hl.dsp.focus({ monitor = "right" }))
 
+hl.bind(mod .. " + CTRL + J", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + CTRL + K", hl.dsp.focus({ workspace = "e+1" }))
+
+hl.bind(mod .. " + CTRL + left", hl.dsp.focus({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + down", hl.dsp.focus({ monitor = "down" }))
 hl.bind(mod .. " + CTRL + up", hl.dsp.focus({ monitor = "up" }))
-hl.bind(mod .. " + CTRL + L", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + CTRL + J", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + CTRL + right", hl.dsp.focus({ monitor = "right" }))
 
 hl.bind(mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
@@ -42,10 +43,19 @@ hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.move({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + Right", hl.dsp.window.move({ direction = "right" }))
 
+hl.bind(mod .. " + CTRL + SHIFT + H", hl.dsp.window.move({ monitor = "left" }))
+hl.bind(mod .. " + CTRL + SHIFT + L", hl.dsp.window.move({ monitor = "right" }))
+
+hl.bind(mod .. " + CTRL + SHIFT + J", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mod .. " + CTRL + SHIFT + K", hl.dsp.window.move({ workspace = "e+1" }))
+
+hl.bind(mod .. " + CTRL + SHIFT + Left",  hl.dsp.window.move({ monitor = "left" }))
+hl.bind(mod .. " + CTRL + SHIFT + Down",  hl.dsp.window.move({ monitor = "down" }))
+hl.bind(mod .. " + CTRL + SHIFT + Up",    hl.dsp.window.move({ monitor = "up" }))
+hl.bind(mod .. " + CTRL + SHIFT + Right", hl.dsp.window.move({ monitor = "right" }))
+
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf"))
 hl.bind(mod .. " + D", hl.dsp.layout("colresize 3conf"))
-
--- hl.bind("SUPER + SHIFT + s", hl.plugin.hyprcapture.open)
 
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -61,3 +71,4 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
