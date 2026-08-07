@@ -9,11 +9,10 @@ hl.exec_cmd("quickshell")
 local monitors = require("./monitors")
 
 for i=1, #monitors do
-    for j=1, 10 do
-        hl.workspace_rule({
-            workspace = i .. j % 10,
-            monitor = monitors[i],
-            persistent = true
-        })
-    end
+    local monitor = monitors[i]
+
+    hl.dispatch(hl.dsp.focus({
+        workspace = i * 10,
+        monitor = monitor,
+    }))
 end
