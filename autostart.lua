@@ -6,13 +6,5 @@ hl.exec_cmd("kime-wayland")
 hl.exec_cmd("hyprpaper")
 hl.exec_cmd("quickshell")
 
-local monitors = require("./monitors")
-
-for i=1, #monitors do
-    local monitor = monitors[i]
-
-    hl.dispatch(hl.dsp.focus({
-        workspace = i * 10,
-        monitor = monitor,
-    }))
-end
+hl.exec_cmd("vesktop")
+hl.exec_cmd("firefox")

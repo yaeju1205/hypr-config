@@ -17,4 +17,23 @@ hl.monitor({
     scale    = 1,
 })
 
+hl.workspace_rule({
+    workspace = "10",
+    monitor = monitors[1],
+    persistent = true,
+    default = true
+})
+
+hl.workspace_rule({
+    workspace = "20",
+    monitor = monitors[2],
+    persistent = true,
+    default = true
+})
+
+hl.dsp.focus({
+    workspace = 20,
+    monitor = monitors[2],
+})
+
 return monitors

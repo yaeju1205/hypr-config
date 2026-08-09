@@ -8,12 +8,6 @@ hl.bind(mod .. " + W", hl.dsp.exec_cmd("xdg-open https://"))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("xdg-open ."))
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 
-hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
-hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
-
-
 hl.bind(mod .. " + 0", function()
     local monitor = hl.get_active_monitor().name
 
@@ -62,6 +56,11 @@ for i=1, 9 do
     end)
 end
 
+hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
+
 hl.bind(mod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + up",    hl.dsp.focus({ direction = "up" }))
@@ -70,14 +69,13 @@ hl.bind(mod .. " + down",  hl.dsp.focus({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + mouse_down", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + SHIFT + mouse_up",   hl.dsp.focus({ direction = "left"  }))
 
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ workspace = "-1" }))
 
 hl.bind(mod .. " + CTRL + H", hl.dsp.focus({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + L", hl.dsp.focus({ monitor = "right" }))
-
-hl.bind(mod .. " + CTRL + J", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mod .. " + CTRL + K", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mod .. " + CTRL + J", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mod .. " + CTRL + K", hl.dsp.focus({ workspace = "-1" }))
 
 hl.bind(mod .. " + CTRL + left", hl.dsp.focus({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + down", hl.dsp.focus({ monitor = "down" }))
@@ -90,15 +88,14 @@ hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
 hl.bind(mod .. " + SHIFT + Left",  hl.dsp.window.swap({ direction = "left" }))
-hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(mod .. " + SHIFT + Down",  hl.dsp.window.swap({ direction = "down" }))
+hl.bind(mod .. " + SHIFT + Up",    hl.dsp.window.swap({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + Right", hl.dsp.window.swap({ direction = "right" }))
 
 hl.bind(mod .. " + CTRL + SHIFT + H", hl.dsp.window.move({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + SHIFT + L", hl.dsp.window.move({ monitor = "right" }))
-
-hl.bind(mod .. " + CTRL + SHIFT + J", hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mod .. " + CTRL + SHIFT + K", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(mod .. " + CTRL + SHIFT + J", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mod .. " + CTRL + SHIFT + K", hl.dsp.window.move({ workspace = "-1" }))
 
 hl.bind(mod .. " + CTRL + SHIFT + Left",  hl.dsp.window.move({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + SHIFT + Down",  hl.dsp.window.move({ monitor = "down" }))
