@@ -56,58 +56,43 @@ for i=1, 9 do
     end)
 end
 
---- @type table<string, integer>
-local monitor_workspaces = {}
-
-for i=1, #monitors do
-    monitor_workspaces[monitors[i]] = 0
-end
-
 local function workspace_focus_up()
-    local monitor = hl.get_active_monitor().name
-    local workspace = monitor_workspaces[monitor]
+    local workspace = hl.get_active_workspace().id % 10
 
     if workspace <= 0 then
         return
     end
 
-    monitor_workspaces[monitor] = monitor_workspaces[monitor] - 1
     hl.dispatch(hl.dsp.focus({ workspace = "-1" }))
 end
 
 local function workspace_focus_down()
-    local monitor = hl.get_active_monitor().name
-    local workspace = monitor_workspaces[monitor]
+    local workspace = hl.get_active_workspace().id % 10
 
     if workspace >= 9 then
         return
     end
 
-    monitor_workspaces[monitor] = monitor_workspaces[monitor] + 1
     hl.dispatch(hl.dsp.focus({ workspace = "+1" }))
 end
 
 local function workspace_move_up()
-    local monitor = hl.get_active_monitor().name
-    local workspace = monitor_workspaces[monitor]
+    local workspace = hl.get_active_workspace().id % 10
 
     if workspace <= 0 then
         return
     end
 
-    monitor_workspaces[monitor] = monitor_workspaces[monitor] - 1
     hl.dispatch(hl.dsp.window.move({ workspace = "-1" }))
 end
 
 local function workspace_move_down()
-    local monitor = hl.get_active_monitor().name
-    local workspace = monitor_workspaces[monitor]
+    local workspace = hl.get_active_workspace().id % 10
 
     if workspace >= 9 then
         return
     end
 
-    monitor_workspaces[monitor] = monitor_workspaces[monitor] + 1
     hl.dispatch(hl.dsp.window.move({ workspace = "+1" }))
 end
 
@@ -142,8 +127,8 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mod .. " + mouse_down", hl.dsp.focus({ direction = "right" }))
 hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ direction = "left"  }))
 
-hl.bind(mod .. " + CTRL + mouse_down", workspace_focus_down)
-hl.bind(mod .. " + CTRL + mouse_up",   workspace_focus_up)
+hl.bind(mod .. " + SHIFT + mouse_down", workspace_focus_down)
+hl.bind(mod .. " + SHIFT + mouse_up",   workspace_focus_up)
 
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf"))
 hl.bind(mod .. " + D", hl.dsp.layout("colresize 3conf"))
