@@ -6,5 +6,5 @@ hl.exec_cmd("kime-wayland")
 hl.exec_cmd("hyprpaper")
 hl.exec_cmd("quickshell")
 
-hl.exec_cmd("vesktop")
-hl.exec_cmd("firefox")
+hl.exec_cmd("[workspace 10 silent] vesktop")
+hl.exec_cmd("[workspace 20 silent] firefox")
