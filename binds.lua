@@ -59,9 +59,8 @@ end
 --- @type table<string, integer>
 local monitor_workspaces = {}
 
-for _=1, #monitors do
-    local monitor = hl.get_active_monitor().name
-    monitor_workspaces[monitor] = 0
+for i=1, #monitors do
+    monitor_workspaces[monitors[i]] = 0
 end
 
 local function workspace_focus_up()
