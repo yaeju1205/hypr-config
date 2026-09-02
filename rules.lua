@@ -12,7 +12,3 @@ hl.window_rule({
 
     no_focus = true,
 })
-
-hl.window_rule({
-    match = { class = ".*" },
-})
