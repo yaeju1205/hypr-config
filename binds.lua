@@ -111,10 +111,10 @@ hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
-hl.bind(mod .. " + SHIFT + ALT + H", hl.dsp.window.swap({ direction = "left" }))
-hl.bind(mod .. " + SHIFT + ALT + J", hl.dsp.window.swap({ direction = "down" }))
-hl.bind(mod .. " + SHIFT + ALT + K", hl.dsp.window.swap({ direction = "up" }))
-hl.bind(mod .. " + SHIFT + ALT + L", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mod .. " + ALT + H", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mod .. " + ALT + J", hl.dsp.window.swap({ direction = "down" }))
+hl.bind(mod .. " + ALT + K", hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mod .. " + ALT + L", hl.dsp.window.swap({ direction = "right" }))
 
 hl.bind(mod .. " + CTRL + SHIFT + H", hl.dsp.window.move({ monitor = "left" }))
 hl.bind(mod .. " + CTRL + SHIFT + J", workspace_move_down)
@@ -133,16 +133,6 @@ hl.bind(mod .. " + SHIFT + mouse_up",   workspace_focus_up)
 hl.bind(mod .. " + R", hl.dsp.layout("colresize +conf"))
 hl.bind(mod .. " + D", hl.dsp.layout("colresize 3conf"))
 
+hl.bind(mod .. " + F", hl.dsp.window.float({ action = "toggle" }))
+
 hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
-
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
-
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })

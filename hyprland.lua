@@ -1,6 +1,3 @@
--- Set environments
-require("./env")
-
 -- Set monitors
 require("./monitors")
 

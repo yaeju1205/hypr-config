@@ -1,8 +1,8 @@
 local general = {
-    gaps_in  = 5,
-    gaps_out = 5,
+    gaps_in  = 0,
+    gaps_out = 0,
 
-    border_size = 2,
+    border_size = 1,
 
     col = {
         active_border   = "#C58EA7",
@@ -17,8 +17,8 @@ local general = {
 }
 
 local decoration = {
-    rounding       = 5,
-    rounding_power = 2,
+    rounding       = 0,
+    rounding_power = 0,
 
     active_opacity   = 1.0,
     inactive_opacity = 0.95,
@@ -56,7 +56,7 @@ local input = {
     kb_variant = "",
 
     follow_mouse = 0,
-    sensitivity = 0,
+    sensitivity = -0.5,
 }
 
 local misc = {
